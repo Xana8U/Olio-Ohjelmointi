@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace T1
+namespace T2
 {
     class Program // Luokka johon ohjelma kuuluu 
     {
