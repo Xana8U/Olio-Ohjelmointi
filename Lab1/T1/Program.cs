@@ -14,7 +14,7 @@ namespace T1
                     {2, "two"},
                     {3, "three"}
             };
-            Console.WriteLine("Give a number > ");  // TUlostaa merkkijonon
+            Console.Write("Give a number > ");  // TUlostaa merkkijonon
             int number = int.Parse(Console.ReadLine());  // Tekee muuttujan number, odottaa että käyttäjä syöttää merkkijonon.
             if (number > 3 || number < 1){
                 Console.WriteLine("Joku muu luku");

@@ -10,7 +10,7 @@ namespace T1
     {
         static void Main()
         {
-            Console.WriteLine("Give point limit : ");
+            Console.Write("Give point limit : ");
             int number = int.Parse(Console.ReadLine());
             if (number > 12 || number < 0) {
                 Console.WriteLine("Invalid input. Use numbers within range 0-12");
