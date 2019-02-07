@@ -42,6 +42,7 @@ namespace T9 {
                     break;
                 }
 
+                tarkistus();
                 Console.Write("Arvaa sana tai kirjain: ");
                 arvaus = Console.ReadLine();
 
@@ -53,14 +54,12 @@ namespace T9 {
                         lifes -= 1;
                         break;
                     }
-                    else if (arvaus == sana) {
-                        Console.WriteLine("OIKEIN, Voitit pelin!!!");
-                        arvattu = true;
-                    }
-                    else {
-                        continue;
-                    }
                 }
+                else if (arvaus == sana) {
+                    Console.WriteLine("OIKEIN, Voitit pelin!!!");
+                    arvattu = true;
+                }
+                
                 // carvaus char kirjainveikkauksiin
                 else if (arvaus.Length == 1) {
                     int status = 0;  // löytyikö kirjainta vai ei
@@ -79,14 +78,16 @@ namespace T9 {
                     if (status == 0) {
                         kirjaimet.Add(carvaus);
                         Console.WriteLine("Kirjainta ei löytynyt");
+                        lifes -= 1;
                     }
                     else if (status == 1) {
                         for (int i = 0; i < inindex.Length; i++)
                             indexes.Add(inindex[i]);
-                            status = 0;
                     }
                 }
                 else {
+                    arvatut.Add(arvaus);
+                    lifes -= 1;
                     continue;
                 }
             }
@@ -122,6 +123,21 @@ namespace T9 {
                     Console.Write("{0}, ", kirjaimet[i]);
                 }
                 Console.Write("\n\n");
+            }
+            void tarkistus() {
+                int starcount = 0;
+                for (int i = 0; i < vihjestructure.Count(); i++) {
+                    if (vihjestructure[i] == '*') {
+                        starcount += 1;
+                    }
+                }
+                if (starcount == 0) {
+                    Console.WriteLine("Voitit pelin!");
+                    System.Environment.Exit(0);
+                }
+                else {
+                    return;
+                }
             }
         }
     }
